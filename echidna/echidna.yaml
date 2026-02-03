@@ -1,0 +1,59 @@
+# Echidna Configuration File
+# Run: echidna echidna/EchidnaLiquidityPool.sol --contract EchidnaLiquidityPool --config echidna/echidna.yaml
+
+# Test mode - property testing
+testMode: "property"
+
+# Number of test sequences
+testLimit: 50000
+
+# Maximum sequence length
+seqLen: 100
+
+# Shrink limit for finding minimal failing case
+shrinkLimit: 5000
+
+# Timeout per test (seconds)
+timeout: 300
+
+# Contract balance (ETH in wei)
+contractAddr: "0x00a329c0648769A73afAc7F9381E08FB43dBEA72"
+deployer: "0x00a329c0648769A73afAc7F9381E08FB43dBEA72"
+
+# Initial balances
+balanceContract: 1000000000000000000000  # 1000 ETH
+balanceAddr: 1000000000000000000000       # 1000 ETH
+
+# Solidity compiler version
+solcArgs: "--optimize --optimize-runs 200"
+
+# Filter functions to test (if empty, tests all)
+# filterFunctions: []
+
+# Blacklist functions that shouldn't be called
+filterBlacklist: true
+filterFunctions:
+  - "echidna_constantProductNeverDecreases"
+  - "echidna_reservesNonNegative"
+  - "echidna_poolIsSolvent"
+  - "echidna_liquidityConsistency"
+  - "echidna_minimumLiquidityLocked"
+  - "echidna_reservesSynced"
+  - "echidna_swapOutputLessThanReserve"
+  - "echidna_feeAlwaysCollected"
+
+# Coverage settings
+corpusDir: "echidna-corpus"
+coverage: true
+
+# Multi-ABI mode for testing internal functions
+multi-abi: false
+
+# Format output
+format: "text"
+
+# Workers
+workers: 1
+
+# Seed for reproducibility (remove for random)
+# seed: 12345

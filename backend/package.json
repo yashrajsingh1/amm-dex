@@ -1,0 +1,20 @@
+{
+  "name": "amm-dex-backend",
+  "version": "1.0.0",
+  "author": "Yash Raj <yashrajsingh1@github.com>",
+  "description": "Backend API for AMM DEX",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
